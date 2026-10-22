@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento Automotivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🚗 Gerador de Orçamento - Oficina & Acessórios</h1>
+            <p>Cadastre os produtos ou serviços e calcule o valor final na hora.</p>
+        </header>
+
+        <!-- Formulário de Cadastro -->
+        <section class="form-section">
+            <h2>Adicionar Item</h2>
+            <form id="item-form">
+                <div class="input-group">
+                    <label for="descricao">Descrição do Produto/Serviço:</label>
+                    <input type="text" id="descricao" placeholder="Ex: Troca de óleo, Jogo de pneus..." required>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="quantidade">Quantidade:</label>
+                        <input type="number" id="quantidade" value="1" min="1" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="valor">Valor Unitário (R$):</label>
+                        <input type="number" id="valor" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">Adicionar ao Orçamento</button>
+            </form>
+        </section>
+
+        <!-- Tabela de Orçamento -->
+        <section class="budget-section">
+            <h2>Itens do Orçamento</h2>
+            <table id="budget-table">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Qtd</th>
+                        <th>Val. Unitário</th>
+                        <th>Subtotal</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Os itens inseridos via JS aparecerão aqui -->
+                </tbody>
+            </table>
+
+            <!-- Resumo e Desconto -->
+            <div class="summary-container">
+                <div class="discount-group">
+                    <label for="desconto">Desconto (%):</label>
+                    <input type="number" id="desconto" value="0" min="0" max="100" step="1">
+                </div>
+
+                <div class="totals">
+                    <p>Subtotal: <span id="subtotal-geral">R$ 0,00</span></p>
+                    <p>Desconto: <span id="valor-desconto">R$ 0,00</span></p>
+                    <h3>Total Final: <span id="total-geral">R$ 0,00</span></h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
